@@ -1,0 +1,22 @@
+﻿<div class="modal-header">
+<button type="button" class="modal-close btn-link" data-dismiss="modal" aria-hidden="true" title="Close" ng-click="widgetActionVM.close()"></button>
+<h4 class="modal-title" ng-bind="widgetActionVM.header"></h4>
+</div>
+<div class="modal-body device-details-Cont">
+    <div class="row padding-muted">
+        <div class="col-md12" style="padding:0 15px;">
+            <h6>Confirmation:</h6>
+           <div>Do you want to really remove this item?</div>
+        </div>
+    </div>
+</div>
+     
+<div class="modal-footer">
+     <div class="rs-btn-group" style="float:right;">                       
+          <button ng-repeat = "bt in widgetActionVM.buttons" style="margin:0 5px;"
+              class="rs-btn modify-selected rs-popover-source" ng-class="bt.cssClass" 
+              ng-click="widgetActionVM.onButtonClick(bt.result)" ng-bind="bt.label"></button>
+     </div>
+</div>
+
+

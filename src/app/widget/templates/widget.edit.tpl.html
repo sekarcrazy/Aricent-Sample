@@ -1,0 +1,56 @@
+ <div class="box box">
+                        <div class="box-header">
+                            <h3 class="box-title">Widget Information</h3>
+                            <i ng-if="widgetCtrl != undefined" class="fa fa-times-circle showCursor" title="collapse deivce detail pane." style="color: #e3e3e3; font-size: 21px;" ng-click="widget.toggleDetailPane();"></i>
+                        </div>
+                        <form name="widgetForm" novalidate>
+                        <div class="box-body">
+                            <h4>Widget Details</h4>
+                            <table class="table table-bordered">
+                                                              
+                                <tr>
+                                    <th>Name:</th>
+                                    <td ><input type="text" name="widgetName" ng-model="widget.activeWidget.name" required>
+                                    <p class="error" ng-show="widgetForm.widgetName.$invalid && !widgetForm.widgetName.$pristine" class="help-block">
+                                        Field cannot be empty!
+                                    </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Value:</th>
+                                    <td ><input type="number" name="widgetValue" required ng-model="widget.activeWidget.value">
+                                    <p class="error" ng-show="widgetForm.widgetValue.$invalid && !widgetForm.widgetValue.$pristine && !widgetForm.widgetValue.$error.number" class="help-block">
+                                        Field cannot be empty!
+                                    </p>
+                                    <p class="error" ng-show="widgetForm.widgetValue.$error.number"> Not valid number!</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <h4>Additional Details</h4>
+                            <table class="table table-bordered">
+                                <tr ng-repeat="key in widget.keys">
+                                    <th style="width:40%">
+                                        <input name="{{'key' + $index}}" type="text" ng-model="key.name" required ng-change="widget.onKeyNameChange(widgetForm);">
+                                    <p class="error" ng-show="widgetForm['key' + $index].$invalid && !widgetForm['key' + $index].$pristine && !widgetForm['key' + $index].$error.uniqueKey"> Field cannot be empty!</p>
+                                    <p class="error" ng-show="widgetForm['key' + $index].$error.uniqueKey"> Key should be unique!</p>
+                                    
+                                    </th>
+                                     <td ><input name="{{'value' + $index}}" type="text" ng-model="key.value" required> <i class="fa fa-times-circle" ng-click="widget.keys.splice($index, 1)"></i> <i ng-if="$index == widget.keys.length -1" class="fa fa-plus" ng-click="widget.addNewKey()"></i>
+                                     <p class="error" ng-show="widgetForm['value' + $index].$invalid && !widgetForm['value' + $index].$pristine"> Field cannot be empty!</p>
+                                     </td>
+                                </tr>
+                                <tr ng-if="widget.keys.length == 0">
+                                    <th></th>
+                                    <td ng-click="widget.addNewKey()">Add New Key<i class="fa fa-plus"></i></td>
+                                </tr>
+                                <tr>
+                                <th></th>
+                                <td><button class="btn" ng-disabled="!widgetForm.$valid"  ng-click="widgetForm.$valid && widget.saveWidget()">Save</td>
+                                </tr>
+                            </table>                           
+                                                     
+                        </div>
+                    </div>
+
+ 
+

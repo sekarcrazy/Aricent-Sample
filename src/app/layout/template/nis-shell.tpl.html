@@ -1,0 +1,45 @@
+﻿<div ng-controller="shellCtrl as shellVM">
+<header class="header" ng-if="shellVM.showHeader">
+  <nav class="navbar navbar-static-top" role="navigation">
+                <a class="nav navbar-nav sidebar-toggle logo" data-toggle="offcanvas" role="button">
+                     
+                </a>
+            <nav class="navbar navbar-static-top navbar-left" role="navigation" style="margin:0 65px;">
+                <div class="tab-nav">
+                    <ul class="nav navbar-nav">
+                        <li ng-class="{'active': shellVM.getCurrentRouterState().url == shellVM.inventoryUrl || shellVM.getCurrentRouterState().parent.url == shellVM.inventoryUrl}">                            
+                            <a ng-href="#{{shellVM.inventoryUrl}}">
+                                <span>Home</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown user user-menu" style="display:none;">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i>
+                                <span>Sekar Chelliah <i class="caret"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a class="btn btn-default btn-flat">DCX Home</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a class="btn btn-default btn-flat">Logout</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+</header>
+<div class="wrapper row-offcanvas row-offcanvas-left" ui-view>
+    
+</div>
+</div> 
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>Demo App</title>
+        <meta content='width=widget-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <link href="vendor/bower/angular-uiGrid/ui-grid.css" rel="stylesheet" />     
+        <link href="vendor/bower/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="vendor/bower/font-awesome/css/font-awesome.min.css" rel="stylesheet" />        
+        <link href="css/demo.css" rel="stylesheet" />
+
+    </head>
+    <body class="skin-gray" id="body">
+        <div class="notification-holder" rx-exception-block></div>
+        <div ng-include="'app/layout/template/nis-shell.tpl.html'"></div>
+        <div wc-overlay="" wc-overlay-delay="30" class="hide">
+            <i class="fa fa-spinner fa-spin spinner"></i> <span style="padding-left:2px;">Loading...</span>
+        </div>
+        
+<script src="vendor/bower/jquery-2.0.3.js"></script>
+<script src="vendor/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+            
+<script src="app/errorHandler/unhandledError.js"></script>
+<script src="vendor/bower/angular/angular.js"></script>
+<script src="vendor/bower/angular-animate/angular-animate.js"></script>
+<script src="vendor/bower/angular-sanitize/angular-sanitize.js"></script>
+<script src="vendor/bower/angular-resource/angular-resource.js"></script>
+<script src="vendor/bower/angular-route/angular-route.js"></script>
+<script src="vendor/bower/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="vendor/bower/lodash/dist/lodash.compat.js"></script>
+<script src="vendor/bower/moment/moment.js"></script>
+<script src="vendor/bower/angular-cookies/angular-cookies.js"></script>
+<script src="vendor/bower/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="vendor/bower/angular-uiGrid/csv.js"></script>
+<script src="vendor/bower/angular-uiGrid/ui-grid.js"></script>
+
+<script src="app/core/config/appSettings.js"></script>
+<script src="app/errorHandler/application-error.js"></script>
+<script src="app/errorHandler/exception-directive.js"></script>
+<script src="app/errorHandler/exception.js"></script>
+<script src="app/errorHandler/exceptionService.js"></script>
+            
+<script src="app/core/core.js"></script>
+<script src="app/core/logger/loggerService.js"></script>
+<script src="app/core/config/config.js"></script>
+<script src="app/core/interceptor/httpInterceptor.js"></script>
+<script src="app/core/interceptor/authTokenInterceptor.js"></script>
+<script src="app/core/helper/routeHelper.js"></script>
+<script src="app/core/helper/constantHelper.js"></script>
+
+
+<script src="app/global/global.js"></script>
+<script src="app/global/service/modelService.js"></script>
+<script src="app/global/directive/overlay.js"></script>
+<script src="app/global/directive/adjustNgGridSize.js"></script>
+<script src="app/global/errorConstant.js"></script>
+<script src="app/global/constant.js"></script>
+<script src="app/global/global-config-route.js"></script>
+<script src="app/global/utility.js"></script>
+
+<script src="app/layout/layout.js"></script>
+<script src="app/layout/controller/shellCtrl.js"></script>
+
+<script src="app/widget/widget.js"></script>
+<script src="app/widget/widget.config.route.js"></script>
+<script src="app/widget/controller/widget.list.ctrl.js"></script>
+<script src="app/widget/services/widget.service.js"></script>
+<script src="app/widget/services/widget.util.service.js"></script>
+<script src="app/widget/controller/widget.details.ctrl.js"></script>
+<script src="app/widget/controller/widget.action.ctrl.js"></script>
+
+<script src="app/app.js"></script>
+    </body>
+</html>

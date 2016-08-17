@@ -1,0 +1,46 @@
+﻿<aside>                
+        <section class="content-header clearfix">
+            <div class="detail-header-title">
+                    <i class="fa fa-list showCursor" title="show/hide filter"></i><span class="title">Widget List</span>
+                    <div class="pull-right"> 
+                    <div class="filterSearch-holder">
+                            <span class="search-icon"></span>
+                            <input title="Multiple search by widget id with space separated " class="ng-pristine ng-untouched ng-valid" type="text" 
+                                placeholder="Search by widget id" ng-model-options="{ debounce: 800 }" ng-model="widgetCtrl.filter.search">
+                            <span class="seachClose-icon ng-hide" ng-show="widgetCtrl.filter.search && widgetCtrl.filter.search.length >0" 
+                                ng-click="widgetCtrl.filter.search.$rollbackViewValue(); widgetCtrl.filter.search=''"></span>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section class="content">
+            <div class="row">
+                <section ng-class="{'col-md-4 padding-right-muted padding-left-muted': widgetCtrl.isWidgetDetailActive, 'device-list-cont': !widgetCtrl.isWidgetDetailActive}">
+                    <div class="box box ">
+                        <div class="box-header">
+                            <h3 class="box-title">Widgets<i class="rs-facet-count" ng-bind="'(' + (widgetCtrl.gridOptions.data.length || 0) + ')'"></i>
+                            </h3>                           
+                            
+                          
+                        </div>
+
+                        <div class="box-body" id="gridContainer" ng-hide="widgetCtrl.gridOptions.data!=undefined && widgetCtrl.gridOptions.data.length == 0">
+                             <div ui-grid="widgetCtrl.gridOptions" ui-grid-cellNav class="grid" ui-grid-selection 
+                                    external-scopes="widgetCtrl" adjustnggrid-size ="#gridContainer" update-layout-callback="widgetCtrl.updateGridLayout">
+
+                             </div>
+                        </div>
+
+                        <div ng-show="widgetCtrl.gridOptions.data!=undefined && widgetCtrl.gridOptions.data.length == 0">
+                            <div class="norecords" ng-bind="widgetCtrl.noRecordsMsg"></div>
+                        </div>
+                        <div><button class="btn pull-left" style="margin-top:15px;margin-left:15px;" ng-click="widgetCtrl.addWidget()">Add</div>
+                    </div>
+                </section>
+                <section class="padding-left-muted" style="padding-right:8px;" 
+                    ng-class="{'col-md-8': widgetCtrl.isWidgetDetailActive, 'col-md-0': !widgetCtrl.isWidgetDetailActive}">
+                    <div ui-view></div>
+                </section>
+            </div>
+        </section>
+    </aside>
